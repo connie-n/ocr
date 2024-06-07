@@ -7,12 +7,7 @@ import os
 
 load_dotenv()
 
-st.set_option('deprecation.showfileUploaderEncoding', False)
 
-# Set Streamlit in Debug Mode
-st.set_option('server.enableCORS', True)
-st.set_option('server.enableWebsocketCompression', False)
-st.set_option('server.enableXsrfProtection', False)
 
 Palligemma_api_key = os.getenv("Paligemma_API")
 
