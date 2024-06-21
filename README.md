@@ -1,3 +1,4 @@
-## My LAB
+This is the place that I deployed simple generative AI models through Streamlit.
 
-This is a lab page to experiment with simple tasks using generative AI models
+
+📍 Link: https://connie-lab.streamlit.app/
