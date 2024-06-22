@@ -2,3 +2,5 @@
 /venv
 .env
 dog.jpeg
+
+/paligemma/create_assets.py
