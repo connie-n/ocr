@@ -7,7 +7,6 @@ import os
 
 
 
-
 def main():
     load_dotenv()
 
@@ -18,15 +17,8 @@ def main():
     invoke_url = "https://ai.api.nvidia.com/v1/vlm/google/paligemma"
     stream = True
 
-    with open("./palligemma/description.txt", "r") as file:
-        description = file.read()
 
-    st.title("Image Captioning with Paligemma")
-
-    st.markdown(description)
-
-
-
+    st.title("Optical Character Recognition (OCR) with Paligemma")
     uploaded_file = st.file_uploader("Upload an image", type=["jpeg", "jpg", "png"])
 
     print("Opening image file...")
@@ -60,7 +52,7 @@ def main():
           "stream": stream
         }
 
-        if st.button("Generate Caption"):
+        if st.button("Process"):
             st.write("======== Sending request to API.. ========")
             response = requests.post(invoke_url, headers=headers, json=payload)
 
@@ -77,30 +69,17 @@ def main():
                                 content = data_json['choices'][0]['delta'].get('content', '')
                                 if content:
                                     caption += content
-                st.write("Generated Caption:")
+                st.write("Extracted Text:")
                 st.write(caption)
             else:
                 st.error(f"Error: {response.status_code}")
+
 
     else:
         if not Palligemma_api_key:
             st.error("API key not found. Please check your .env file.")
         else:
             st.warning("Please upload an image.")
-
-  # sample_image
-    st.markdown("If you don't have image file, try to use the sample image provided after saving and loading it:")
-    sample_image_path = "./palligemma/sample_image_dog.jpeg"
-    if os.path.exists(sample_image_path):
-        st.image(sample_image_path, caption='Sample Image', use_column_width=True)
-        # if st.button("Generate Caption for Sample Image"):
-        #     with open(sample_image_path, "rb") as img_file:
-        #         image_b64 = base64.b64encode(img_file.read()).decode()
-
-        #    generate_caption(image_b64, Palligemma_api_key, invoke_url, stream)
-    else:
-        st.error("Sample image not found. Please ensure the sample image is in the correct directory.")
-
 
 
 
