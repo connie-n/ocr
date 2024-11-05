@@ -1,0 +1,17 @@
+This pages allows you to extract text and list up items from the receipt image file. 
+You can find the result with below sample image file and try to process with your own recipt files.
+
+
+**Model Information:**
+
+This demo uses the Donut model, a base-sized version fine-tuned on the CORD dataset, hosted on Huggingface(https://huggingface.co/jinhybr/OCR-Donut-CORD). 
+Originally introduced in the paper "OCR-free Document Understanding Transformer" by Geewok et al. (https://arxiv.org/abs/2111.15664), 
+this model utilizes a unique architecture that combines a Swin Transformer vision encoder and a BART text decoder. 
+The encoder processes an input image into a tensor of embeddings, and the decoder then generates text based on these embeddings.
+
+
+
+If you have any question, please contact me.
+email: wongyung68@gmail.com
+
+
