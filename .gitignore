@@ -1,5 +1,8 @@
 
 /venv
+/new-venv
+
+
 .env
 dog.jpeg
 
