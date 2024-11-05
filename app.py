@@ -6,21 +6,23 @@ from dotenv import load_dotenv
 import os
 
 
-from palligemma import image_captioning, ocr
+from tasks import image_captioning, ocr
 
 
 
 
-add_selectbox = st.sidebar.selectbox(
+add_task = st.sidebar.radio(
     "Which task would you like to try?",
-    ("Image Captioning", "OCR")
+    ("OCR", "Image Captioning")
 )
 
-if add_selectbox == "Image Captioning":
+if add_task == "OCR":
+    ocr.main()
+
+if add_task == "Image Captioning":
     image_captioning.main()
 
-if add_selectbox == "OCR":
-    ocr.main()
+
 
 
 
